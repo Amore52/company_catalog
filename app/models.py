@@ -1,10 +1,7 @@
-
 from sqlalchemy import Column, Integer, String, Float, ForeignKey, Table
 from sqlalchemy.orm import relationship, declarative_base
-from sqlalchemy.dialects.postgresql import ARRAY
 
 Base = declarative_base()
-
 
 organization_activity = Table(
     'organization_activity', Base.metadata,
@@ -19,6 +16,7 @@ class Phone(Base):
     number = Column(String, nullable=False)
     organization_id = Column(Integer, ForeignKey('organizations.id'))
 
+
 class Activity(Base):
     __tablename__ = 'activities'
     id = Column(Integer, primary_key=True, index=True)
@@ -30,6 +28,7 @@ class Activity(Base):
     children = relationship("Activity", back_populates="parent")
     organizations = relationship("Organization", secondary=organization_activity, back_populates="activities")
 
+
 class Building(Base):
     __tablename__ = 'buildings'
     id = Column(Integer, primary_key=True, index=True)
@@ -38,6 +37,7 @@ class Building(Base):
     longitude = Column(Float, nullable=False)
 
     organizations = relationship("Organization", back_populates="building")
+
 
 class Organization(Base):
     __tablename__ = 'organizations'

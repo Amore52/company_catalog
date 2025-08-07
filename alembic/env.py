@@ -1,9 +1,9 @@
-from logging.config import fileConfig
-from sqlalchemy import engine_from_config, pool
-from alembic import context
 import os
 import sys
+
+from alembic import context
 from dotenv import load_dotenv
+from sqlalchemy import engine_from_config, pool
 
 sys.path.append(os.path.dirname(os.path.dirname(__file__)))
 
@@ -18,6 +18,7 @@ config.set_main_option('sqlalchemy.url', DATABASE_URL)
 
 target_metadata = Base.metadata
 
+
 def run_migrations_online():
     connectable = engine_from_config(
         config.get_section(config.config_ini_section),
@@ -29,5 +30,6 @@ def run_migrations_online():
         context.configure(connection=connection, target_metadata=target_metadata)
         with context.begin_transaction():
             context.run_migrations()
+
 
 run_migrations_online()

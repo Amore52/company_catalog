@@ -1,10 +1,11 @@
-from fastapi import FastAPI
-from contextlib import asynccontextmanager
 import logging
 import sys
+from contextlib import asynccontextmanager
 
-from .database import init_db
+from fastapi import FastAPI
+
 from .api import endpoints
+from .database import init_db
 
 logger = logging.getLogger("app.main")
 logger.setLevel(logging.INFO)

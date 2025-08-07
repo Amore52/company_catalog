@@ -1,7 +1,7 @@
-# app/crud.py
 from typing import List, Optional
-from sqlalchemy.orm import Session
+
 from geopy.distance import geodesic
+from sqlalchemy.orm import Session
 
 from . import models, schemas
 
@@ -85,7 +85,7 @@ def get_organizations_by_activity(db: Session, activity_id: int) -> List[models.
 
 
 def get_organizations_by_radius(
-    db: Session, lat: float, lon: float, radius_km: float
+        db: Session, lat: float, lon: float, radius_km: float
 ) -> List[models.Organization]:
     """
     Получить организации, находящиеся в пределах заданного радиуса от точки.
@@ -116,11 +116,11 @@ def get_organizations_by_radius(
 
 
 def get_organizations_by_bbox(
-    db: Session,
-    min_lat: float,
-    max_lat: float,
-    min_lon: float,
-    max_lon: float
+        db: Session,
+        min_lat: float,
+        max_lat: float,
+        min_lon: float,
+        max_lon: float
 ) -> List[models.Organization]:
     """
     Получить организации, находящиеся в заданной прямоугольной области (bounding box).
