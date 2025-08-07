@@ -58,7 +58,8 @@ X-API-Key: your-secret-key
 ```POSTGRES_PASSWORD```  - postgres  
 ```POSTGRES_DB``` - company_catalog_db  
 ```DATABASE_URL``` - postgresql://postgres:postgres@db:5432/company_catalog_db  
-```API_KEY``` - ваш секретный ключ
+```API_KEY``` - ваш секретный ключ  
+
 2. Запустите приложение:
 ```
 docker-compose up --build
