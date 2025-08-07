@@ -62,5 +62,9 @@ X-API-Key: your-secret-key
 2. Запустите приложение:
 ```
 docker-compose up --build
-2. ```
+```
+3. API доступен по адресу:
+```commandline
+http://localhost:8000/docs
+```
 
