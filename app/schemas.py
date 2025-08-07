@@ -15,7 +15,6 @@ class ActivityCreate(ActivityBase):
 class ActivityResponse(ActivityBase):
     id: int
     level: int
-    parent: Optional['ActivityResponse'] = None
     children: List['ActivityResponse'] = []
 
     class Config:
@@ -70,7 +69,7 @@ class OrganizationUpdate(OrganizationBase):
 
 
 class OrganizationResponse(OrganizationBase):
-    id: int = Field(..., example=1)
+    id: int
     phones: List[PhoneResponse]
     building: BuildingResponse
     activities: List[ActivityResponse]
